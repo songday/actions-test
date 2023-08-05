@@ -22,13 +22,13 @@ jobs:
             os: ubuntu-20.04
             target: x86_64-unknown-linux-musl
             bin: actions-test
-            name: actionsTest-Linux-x86_64-musl.tar.gz
+            name: actions-test-Linux-x86_64-musl.tar.gz
             skip_tests: true
           - os_name: Windows-x86_64
             os: windows-2019
             target: x86_64-pc-windows-msvc
             bin: actions-test.exe
-            name: actionsTest-Windows-x86_64.zip
+            name: actions-test-Windows-x86_64.zip
             skip_tests: true
         toolchain:
           - stable
@@ -91,7 +91,7 @@ jobs:
       - name: Publish release artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: actionsTest-${{ matrix.platform.os_name }}
+          name: actions-test-${{ matrix.platform.os_name }}
           path: "actions-test-*"
         # if: matrix.toolchain == 'stable' && github.ref == 'refs/tags/test-release'
         if: matrix.toolchain == 'stable'
